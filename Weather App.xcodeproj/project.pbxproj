@@ -13,6 +13,7 @@
 		16FEF7691B44AAA100C38CD7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 16FEF7681B44AAA100C38CD7 /* Images.xcassets */; };
 		16FEF76C1B44AAA100C38CD7 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 16FEF76A1B44AAA100C38CD7 /* LaunchScreen.xib */; };
 		16FEF7781B44AAA200C38CD7 /* Weather_AppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16FEF7771B44AAA200C38CD7 /* Weather_AppTests.swift */; };
+		16FEF7841B44AE3400C38CD7 /* CurrentWeather.plist in Resources */ = {isa = PBXBuildFile; fileRef = 16FEF7831B44AE3400C38CD7 /* CurrentWeather.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +37,7 @@
 		16FEF7711B44AAA200C38CD7 /* Weather AppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Weather AppTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		16FEF7761B44AAA200C38CD7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		16FEF7771B44AAA200C38CD7 /* Weather_AppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather_AppTests.swift; sourceTree = "<group>"; };
+		16FEF7831B44AE3400C38CD7 /* CurrentWeather.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = CurrentWeather.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +92,7 @@
 		16FEF75F1B44AAA100C38CD7 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				16FEF7831B44AE3400C38CD7 /* CurrentWeather.plist */,
 				16FEF7601B44AAA100C38CD7 /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -193,6 +196,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				16FEF7671B44AAA100C38CD7 /* Main.storyboard in Resources */,
+				16FEF7841B44AE3400C38CD7 /* CurrentWeather.plist in Resources */,
 				16FEF76C1B44AAA100C38CD7 /* LaunchScreen.xib in Resources */,
 				16FEF7691B44AAA100C38CD7 /* Images.xcassets in Resources */,
 			);
