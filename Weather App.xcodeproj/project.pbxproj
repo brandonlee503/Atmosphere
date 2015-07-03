@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1662E77A1B4646DB001E3FFB /* CurrentWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1662E7791B4646DB001E3FFB /* CurrentWeather.swift */; };
 		16FEF7621B44AAA100C38CD7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16FEF7611B44AAA100C38CD7 /* AppDelegate.swift */; };
 		16FEF7641B44AAA100C38CD7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16FEF7631B44AAA100C38CD7 /* ViewController.swift */; };
 		16FEF7671B44AAA100C38CD7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 16FEF7651B44AAA100C38CD7 /* Main.storyboard */; };
@@ -27,6 +28,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1662E7791B4646DB001E3FFB /* CurrentWeather.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentWeather.swift; sourceTree = "<group>"; };
 		16FEF75C1B44AAA100C38CD7 /* Weather App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Weather App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		16FEF7601B44AAA100C38CD7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		16FEF7611B44AAA100C38CD7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -80,6 +82,7 @@
 			isa = PBXGroup;
 			children = (
 				16FEF7611B44AAA100C38CD7 /* AppDelegate.swift */,
+				1662E7791B4646DB001E3FFB /* CurrentWeather.swift */,
 				16FEF7631B44AAA100C38CD7 /* ViewController.swift */,
 				16FEF7651B44AAA100C38CD7 /* Main.storyboard */,
 				16FEF7681B44AAA100C38CD7 /* Images.xcassets */,
@@ -217,6 +220,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				16FEF7641B44AAA100C38CD7 /* ViewController.swift in Sources */,
+				1662E77A1B4646DB001E3FFB /* CurrentWeather.swift in Sources */,
 				16FEF7621B44AAA100C38CD7 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -413,6 +417,7 @@
 				16FEF77D1B44AAA200C38CD7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		16FEF77E1B44AAA200C38CD7 /* Build configuration list for PBXNativeTarget "Weather AppTests" */ = {
 			isa = XCConfigurationList;
@@ -421,6 +426,7 @@
 				16FEF7801B44AAA200C38CD7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
