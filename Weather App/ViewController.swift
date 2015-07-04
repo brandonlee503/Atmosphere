@@ -13,8 +13,14 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        // If "CurrentWeather.plist" exists in the main directory of our project...
+        // 1 - Assign path string to plistPath variable
+        // 2 - Load contents of the plist into an NSDictionary instance
+        // 3 - Load contents of dictionary of with "currently" key (if it exists) as any object
         if let plistPath = NSBundle.mainBundle().pathForResource("CurrentWeather", ofType: "plist"), let weatherDictionary = NSDictionary(contentsOfFile: plistPath), let currentWeatherDictionary = weatherDictionary["currently"] as? [String: AnyObject] {
             
+            // Create instance of struct initilized with our plist values
             let currentWeather = CurrentWeather(weatherDictionary: currentWeatherDictionary)
         }
     }
