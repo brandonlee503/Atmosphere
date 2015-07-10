@@ -10,6 +10,11 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    //Label outlets
+    @IBOutlet weak var currentTemperatureLabel: UILabel?
+    @IBOutlet weak var currentHumidityLabel: UILabel?
+    @IBOutlet weak var currentPrecipitationLevel: UILabel?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -22,6 +27,11 @@ class ViewController: UIViewController {
             
             // Create instance of struct initilized with our plist values
             let currentWeather = CurrentWeather(weatherDictionary: currentWeatherDictionary)
+            
+            // Optional chanining and modifying label output
+            currentTemperatureLabel?.text = "\(currentWeather.temperature)º"
+            currentHumidityLabel?.text = "\(currentWeather.humidity)%"
+            currentPrecipitationLevel?.text = "\(currentWeather.precipProbability)%"
         }
     }
 
@@ -32,4 +42,3 @@ class ViewController: UIViewController {
 
 
 }
-

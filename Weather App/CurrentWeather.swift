@@ -15,10 +15,17 @@ struct CurrentWeather {
     let precipProbability: Int
     let summary: String
     
+    // Initialize struct values towards plist values
     init(weatherDictionary: [String: AnyObject]) {
+        
         temperature = weatherDictionary["temperature"] as! Int
-        humidity = weatherDictionary["humidity"] as! Int
-        precipProbability = weatherDictionary["precipChance"] as! Int
+        
+        let humidityFloat = weatherDictionary["humidity"] as! Double
+        humidity = Int(humidityFloat * 100)
+        
+        let precipProbabilityFloat = weatherDictionary["precipProbability"] as! Double
+        precipProbability = Int(precipProbabilityFloat * 100)
+        
         summary = weatherDictionary["summary"] as! String
     }
 }
