@@ -26,6 +26,8 @@ class ViewController: UIViewController {
         let forcastURL = NSURL(string: "37.8267,-122.423", relativeToURL: baseURL)
         
         // Data object to fetch weather data
+        let weatherData = NSData(contentsOfURL: forcastURL!, options: nil, error: nil)
+        println(weatherData)
         
     }
 
@@ -33,6 +35,4 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-
 }
