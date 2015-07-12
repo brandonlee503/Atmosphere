@@ -40,11 +40,8 @@ class ViewController: UIViewController {
         
         let dataTask = session.dataTaskWithRequest(request, completionHandler: { (data:
             NSData!, response: NSURLResponse!, error: NSError!) -> Void in
-            println(data)
-            println("I'm in background thread")
         })
-        
-        println("Im in main thead")
+
         dataTask.resume()
     }
 
