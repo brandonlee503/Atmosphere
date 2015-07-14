@@ -22,7 +22,7 @@ class NetworkOperation {
         self.queryURL = url
     }
     
-    func downloadJSONfromURL(completion: JSONDictionaryCompletion) {
+    func downloadJSONFromURL(completion: JSONDictionaryCompletion) {
         
         // Initilize request
         let request: NSURLRequest = NSURLRequest(URL: queryURL)
