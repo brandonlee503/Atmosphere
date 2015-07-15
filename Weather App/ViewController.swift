@@ -21,6 +21,28 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
+        let forcastService = ForcastService(APIKey: forcastAPIKey)
+        
+        // Trailing closure
+        forcastService.getForcast(coordinat.lat, long: coordinat.long) {
+            (let currently) in
+            if let currentWeather = currently {
+                
+                // Update UI on the main thread (we're still in the background thread) with some GCD magic
+                dispatch_async(dispatch_get_main_queue()) {
+                    
+                    // Execute trailing closure to update UI labels
+                    if let temperature = currentWeather.temperature {
+                        
+                        // If refering to a stored property from within a closure, you have to use keyword 'self'
+                        self.currentTemperatureLabel?.text = "\(temperature)º"
+                    }
+                }
+            }
+        }
+        
+        
+        /* - OLD NOOB IMPLEMENTATION
         // Declare base URL and call it in forcast URL for specific locations
         let baseURL = NSURL(string: "https://api.forecast.io/forecast/\(forcastAPIKey)/")
         let forcastURL = NSURL(string: "37.8267,-122.423", relativeToURL: baseURL)
@@ -43,6 +65,7 @@ class ViewController: UIViewController {
         })
 
         dataTask.resume()
+        */
     }
 
     override func didReceiveMemoryWarning() {
