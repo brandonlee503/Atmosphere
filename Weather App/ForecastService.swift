@@ -1,5 +1,5 @@
 //
-//  ForcastService.swift
+//  ForecastService.swift
 //  Weather App
 //
 //  Created by Brandon Lee on 7/13/15.
@@ -8,33 +8,33 @@
 
 import Foundation
 
-struct ForcastService {
+struct ForecastService {
     
     // Struct properties
-    let forcastAPIKey: String
-    let forcastBaseURL: NSURL?
+    let forecastAPIKey: String
+    let forecastBaseURL: NSURL?
     
     // Initilize struct properties
     init(APIKey: String) {
-        forcastAPIKey = APIKey
-        forcastBaseURL = NSURL(string: "https://api.forcast.io/forcast/\(forcastAPIKey)/")
+        forecastAPIKey = APIKey
+        forecastBaseURL = NSURL(string: "https://api.forecast.io/forecast/\(forecastAPIKey)/")
     }
     
-    // Input location and a closure and return the forcast
+    // Input location and a closure and return the forecast
     // Use closure here since we'll be calling the download JSON method of NetworkOperation
-    func getForcast(lat: Double, long: Double, completion: (CurrentWeather? -> Void)) {
+    func getForecast(lat: Double, long: Double, completion: (CurrentWeather? -> Void)) {
         
-        // Safely initilize forcast URL
-        if let forcastURL = NSURL(string: "\(lat),\(long)", relativeToURL: forcastBaseURL) {
+        // Safely initilize forecast URL
+        if let forecastURL = NSURL(string: "\(lat),\(long)", relativeToURL: forecastBaseURL) {
             
-            let networkOperation = NetworkOperation(url: forcastURL)
+            let networkOperation = NetworkOperation(url: forecastURL)
             
             // Trailing closure
             networkOperation.downloadJSONFromURL {
                 (let JSONDictionary) in
                 let currentWeather = self.currentWeatherFromJSONDictionary(JSONDictionary)
                 
-                // This moves it up to the completion handler in parameter so that if we call the getForcast() method,
+                // This moves it up to the completion handler in parameter so that if we call the getForecast() method,
                 // and complete the completion handler and access the currentWeather variable, we get access to the
                 // populated instance that we're passing up.
                 completion(currentWeather)

@@ -25,10 +25,10 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        let forcastService = ForcastService(APIKey: forcastAPIKey)
+        let forecastService = ForecastService(APIKey: forecastAPIKey)
         
         // Trailing closure
-        forcastService.getForcast(coordinat.lat, long: coordinat.long) {
+        forecastService.getForecast(coordinat.lat, long: coordinat.long) {
             (let currently) in
             if let currentWeather = currently {
                 
