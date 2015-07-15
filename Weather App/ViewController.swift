@@ -16,7 +16,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var currentPrecipitationLevel: UILabel?
     
     // Initilize API key
-    private let forcastAPIKey = ""  
+    private let forecastAPIKey = ""
     
     
     let coordinat: (lat: Double, long: Double) = (44.5736,-123.2750)
