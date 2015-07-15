@@ -43,7 +43,7 @@ class NetworkOperation {
                     completion(jsonDictionary)
                     
                 default:
-                    println("GET request not sucessful. HTTP status code: \(httpResponse.statusCode)")
+                    println("GET request not successful. HTTP status code: \(httpResponse.statusCode)")
                 }
                 
             } else {
