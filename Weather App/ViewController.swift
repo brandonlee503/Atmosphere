@@ -41,6 +41,15 @@ class ViewController: UIViewController {
                         // If refering to a stored property from within a closure, you have to use keyword 'self'
                         self.currentTemperatureLabel?.text = "\(temperature)º"
                     }
+                    
+                    // Repeat same process for other labels
+                    if let humidity = currentWeather.humidity {
+                        self.currentHumidityLabel?.text = "\(humidity)%"
+                    }
+                    
+                    if let precipitation = currentWeather.precipProbability {
+                        self.currentPrecipitationLevel?.text = "\(precipitation)%"
+                    }
                 }
             }
         }
