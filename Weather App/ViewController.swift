@@ -15,7 +15,11 @@ class ViewController: UIViewController {
     @IBOutlet weak var currentHumidityLabel: UILabel?
     @IBOutlet weak var currentPrecipitationLevel: UILabel?
     
-    private let forcastAPIKey = ""
+    // Initilize API key
+    private let forcastAPIKey = ""  
+    
+    
+    let coordinat: (lat: Double, long: Double) = (44.5736,-123.2750)
     
     override func viewDidLoad() {
         super.viewDidLoad()
