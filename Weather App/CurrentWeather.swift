@@ -49,6 +49,10 @@ enum Icon: String {
             imageName = "cloudy-day.png"
         case .PartlyCloudyNight:
             imageName = "cloudy-night.png"
+        }
+        
+        return UIImage(named: imageName)
+    }
 }
 
 struct CurrentWeather {
@@ -82,8 +86,7 @@ struct CurrentWeather {
         summary = weatherDictionary["summary"] as? String
         
         // Set Icon Image
-        if let iconString = weatherDictionary["icon"] as? String
-            let weatherIcon: Icon = Icon(rawValue: iconString) {
+        if let iconString = weatherDictionary["icon"] as? String, let weatherIcon: Icon = Icon(rawValue: iconString) {
             icon = weatherIcon.toImage()
         }
     }
