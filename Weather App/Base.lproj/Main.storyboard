@@ -47,9 +47,21 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="default" translatesAutoresizingMaskIntoConstraints="NO" id="nKz-82-a5J">
-                                <rect key="frame" x="215" y="119" width="60" height="60"/>
+                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="default" translatesAutoresizingMaskIntoConstraints="NO" id="nKz-82-a5J">
+                                <rect key="frame" x="205" y="149" width="30" height="30"/>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Oregon" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DJm-dw-TTd">
+                                <rect key="frame" x="320" y="138" width="64.5" height="24"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="20"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Summary" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LGb-Y9-WWJ">
+                                <rect key="frame" x="256" y="510" width="88" height="26"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="22"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.29019607843137257" green="0.56470588235294117" blue="0.88627450980392153" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -65,14 +77,18 @@
                             <constraint firstAttribute="centerX" secondItem="aSt-Tc-cl7" secondAttribute="centerX" constant="-80" id="MgL-xB-wbg"/>
                             <constraint firstItem="mAF-5t-uxE" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="184" id="Nl2-mJ-cow"/>
                             <constraint firstItem="mAF-5t-uxE" firstAttribute="top" secondItem="nKz-82-a5J" secondAttribute="bottom" constant="26" id="OF3-gN-a8o"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="LGb-Y9-WWJ" secondAttribute="bottom" constant="64" id="QEL-yF-6Wg"/>
                             <constraint firstAttribute="centerY" secondItem="mAF-5t-uxE" secondAttribute="centerY" id="WcC-KW-oeT"/>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="mAF-5t-uxE" secondAttribute="bottom" constant="190" id="ZbQ-y2-Hlq"/>
+                            <constraint firstAttribute="centerX" secondItem="LGb-Y9-WWJ" secondAttribute="centerX" id="b9T-Zk-Ya0"/>
+                            <constraint firstItem="mAF-5t-uxE" firstAttribute="top" secondItem="DJm-dw-TTd" secondAttribute="bottom" constant="43" id="bCp-Uu-VJy"/>
                             <constraint firstItem="qBl-JB-wXB" firstAttribute="top" secondItem="aSt-Tc-cl7" secondAttribute="bottom" constant="9" id="etu-on-Ial"/>
                             <constraint firstItem="qBl-JB-wXB" firstAttribute="top" secondItem="aSt-Tc-cl7" secondAttribute="bottom" constant="8" id="fV3-R4-Pje"/>
                             <constraint firstItem="0ot-8A-b82" firstAttribute="top" secondItem="mAF-5t-uxE" secondAttribute="bottom" constant="6" id="n7J-Xf-CYz"/>
                             <constraint firstItem="mAF-5t-uxE" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="185" id="oiv-3S-2nL"/>
                             <constraint firstAttribute="centerX" secondItem="nKz-82-a5J" secondAttribute="centerX" constant="80" id="rjW-t1-zxX"/>
                             <constraint firstItem="qBl-JB-wXB" firstAttribute="centerX" secondItem="aSt-Tc-cl7" secondAttribute="centerX" constant="7.25" id="sSZ-7t-ReQ"/>
+                            <constraint firstItem="DJm-dw-TTd" firstAttribute="leading" secondItem="nKz-82-a5J" secondAttribute="trailing" constant="85" id="uyv-8x-GOP"/>
                             <constraint firstItem="uRA-rL-24K" firstAttribute="top" secondItem="0ot-8A-b82" secondAttribute="bottom" constant="8" id="x3S-cF-Xrf"/>
                             <constraint firstAttribute="centerX" secondItem="qBl-JB-wXB" secondAttribute="centerX" constant="-79" id="zNk-eH-YVF"/>
                             <constraint firstAttribute="centerX" secondItem="0ot-8A-b82" secondAttribute="centerX" id="zrH-kx-21Z"/>
@@ -104,6 +120,8 @@
                         <outlet property="currentHumidityLabel" destination="uRA-rL-24K" id="kFF-YK-ACY"/>
                         <outlet property="currentPrecipitationLevel" destination="qBl-JB-wXB" id="b9v-BT-Y0B"/>
                         <outlet property="currentTemperatureLabel" destination="mAF-5t-uxE" id="2QR-bj-Hem"/>
+                        <outlet property="currentWeatherIcon" destination="nKz-82-a5J" id="OgD-W0-3aX"/>
+                        <outlet property="currentWeatherSummary" destination="LGb-Y9-WWJ" id="MES-nr-iF5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>

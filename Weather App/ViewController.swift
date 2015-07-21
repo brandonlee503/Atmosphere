@@ -14,6 +14,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var currentTemperatureLabel: UILabel?
     @IBOutlet weak var currentHumidityLabel: UILabel?
     @IBOutlet weak var currentPrecipitationLevel: UILabel?
+    @IBOutlet weak var currentWeatherIcon: UIImageView?
+    @IBOutlet weak var currentWeatherSummary: UILabel?
     
     // Initilize API key
     private let forecastAPIKey = ""
@@ -49,6 +51,14 @@ class ViewController: UIViewController {
                     
                     if let precipitation = currentWeather.precipProbability {
                         self.currentPrecipitationLevel?.text = "\(precipitation)%"
+                    }
+                    
+                    if let icon = currentWeather.icon {
+                        self.currentWeatherIcon?.image = icon
+                    }
+                    
+                    if let summary = currentWeather.summary {
+                        self.currentWeatherSummary?.text = summary
                     }
                 }
             }
