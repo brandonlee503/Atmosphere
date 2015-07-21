@@ -16,6 +16,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var currentPrecipitationLevel: UILabel?
     @IBOutlet weak var currentWeatherIcon: UIImageView?
     @IBOutlet weak var currentWeatherSummary: UILabel?
+    @IBOutlet weak var refreshButton: UIButton?
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView?
     
     // Initilize API key
     private let forecastAPIKey = ""
@@ -56,6 +58,11 @@ class ViewController: UIViewController {
         */
     }
 
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
     func retrieveWeatherForcast() {
         
         let forecastService = ForecastService(APIKey: forecastAPIKey)
@@ -91,17 +98,25 @@ class ViewController: UIViewController {
                     if let summary = currentWeather.summary {
                         self.currentWeatherSummary?.text = summary
                     }
+                    
+                    self.toggleRefreshAnimation(false)
                 }
             }
         }
     }
     
     @IBAction func refreshWeather() {
+        toggleRefreshAnimation(true)
         retrieveWeatherForcast()
     }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+
+    func toggleRefreshAnimation(on: Bool) {
+        refreshButton?.hidden = on
+        if on {
+            activityIndicator?.startAnimating()
+        } else {
+            activityIndicator?.stopAnimating()
+        }
     }
+    
 }
