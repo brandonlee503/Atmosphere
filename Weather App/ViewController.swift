@@ -93,5 +93,4 @@ class ViewController: UIViewController {
             activityIndicator?.stopAnimating()
         }
     }
-    
 }
