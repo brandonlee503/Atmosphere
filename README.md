@@ -10,3 +10,9 @@ A few learned/utilized iOS development concepts include:
 - Writing modular code in accordance with MVC
 - Size classes and constraints
 - Writing concurrent, asynchronous code with GCD
+
+## Screenshots
+
+#### Main View:
+
+![alt tag](https://raw.githubusercontent.com/brandonlee503/Weather-App/master/Weather%20App%20Screenshot.png)
