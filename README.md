@@ -1,4 +1,4 @@
-# Weather-App
+# Atmosphere-Weather-App
 A fairly simple iOS app to tell the weather for the user.  Utilizes multiple paradigms covered in lessons and chapters.  Many possible features to still add...
 
 A few learned/utilized iOS development concepts include:
