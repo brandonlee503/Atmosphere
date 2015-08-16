@@ -64,6 +64,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		16C7A9911B8059F2002F2BF8 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		16C7A9921B8059FF002F2BF8 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				16FEF7651B44AAA100C38CD7 /* Main.storyboard */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		16C7A9931B805A03002F2BF8 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				1662E7791B4646DB001E3FFB /* CurrentWeather.swift */,
+				169F5A841B54B7EF006C9789 /* ForecastService.swift */,
+				16F44A3E1B52E8E40059B7D1 /* NetworkOperation.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
 		16FEF7531B44AAA100C38CD7 = {
 			isa = PBXGroup;
 			children = (
@@ -85,12 +110,10 @@
 		16FEF75E1B44AAA100C38CD7 /* Weather App */ = {
 			isa = PBXGroup;
 			children = (
-				16FEF7611B44AAA100C38CD7 /* AppDelegate.swift */,
-				1662E7791B4646DB001E3FFB /* CurrentWeather.swift */,
-				169F5A841B54B7EF006C9789 /* ForecastService.swift */,
+				16C7A9931B805A03002F2BF8 /* Models */,
+				16C7A9921B8059FF002F2BF8 /* Views */,
+				16C7A9911B8059F2002F2BF8 /* Controller */,
 				16FEF7631B44AAA100C38CD7 /* ViewController.swift */,
-				16F44A3E1B52E8E40059B7D1 /* NetworkOperation.swift */,
-				16FEF7651B44AAA100C38CD7 /* Main.storyboard */,
 				16FEF7681B44AAA100C38CD7 /* Images.xcassets */,
 				16FEF76A1B44AAA100C38CD7 /* LaunchScreen.xib */,
 				16FEF75F1B44AAA100C38CD7 /* Supporting Files */,
@@ -101,6 +124,7 @@
 		16FEF75F1B44AAA100C38CD7 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				16FEF7611B44AAA100C38CD7 /* AppDelegate.swift */,
 				16FEF7831B44AE3400C38CD7 /* CurrentWeather.plist */,
 				16FEF7601B44AAA100C38CD7 /* Info.plist */,
 			);
