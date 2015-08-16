@@ -12,6 +12,7 @@ class WeeklyTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.backgroundView = BackgroundView()
     }
 
     override func didReceiveMemoryWarning() {
@@ -32,4 +33,4 @@ class WeeklyTableViewController: UITableViewController {
         // Return the number of rows in the section.
         return 0
     }
-}g
+}
