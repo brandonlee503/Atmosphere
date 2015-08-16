@@ -5,7 +5,7 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Weekly Table View Controller-->
+        <!--Weekly-->
         <scene sceneID="uDx-if-poH">
             <objects>
                 <tableViewController id="Tdj-dg-2fz" customClass="WeeklyTableViewController" customModule="Weather_App" customModuleProvider="target" sceneMemberID="viewController">
@@ -79,7 +79,7 @@
                             <outlet property="delegate" destination="Tdj-dg-2fz" id="j9b-dX-3o7"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="SD3-UA-Tdb"/>
+                    <navigationItem key="navigationItem" title="Weekly" id="SD3-UA-Tdb"/>
                     <connections>
                         <outlet property="currentPrecipitationLevel" destination="aEv-6N-xVs" id="AX5-bW-fbN"/>
                         <outlet property="currentTemperatureLabel" destination="mBh-Pl-6Cx" id="wLJ-2u-fsS"/>
@@ -249,9 +249,10 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="F3x-e0-hX0" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="hmt-nc-vCg">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="hmt-nc-vCg">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.66666666666666663" green="0.51372549019607838" blue="0.8784313725490196" alpha="0.5" colorSpace="calibratedRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
