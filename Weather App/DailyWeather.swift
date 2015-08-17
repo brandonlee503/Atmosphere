@@ -18,10 +18,13 @@ struct DailyWeather {
     let summary: String?
     var icon: UIImage? = UIImage(named: "default.png")
     var largeIcon: UIImage? = UIImage(named: "default_large.png")
-    let sunriseTime: String?
-    let sunsetTime: String?
-    let day: String?
-
+    var sunriseTime: String?
+    var sunsetTime: String?
+    var day: String?
+    
+    // Date formatter stored property
+    let dateFormatter = NSDateFormatter()
+    
     init(dailyWeatherDict: [String: AnyObject]) {
         
         // Using the optional cast operator (as?) in case the dictionary we pass in doesn't contain the key, will still be stored as an optional
