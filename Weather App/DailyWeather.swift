@@ -43,5 +43,49 @@ struct DailyWeather {
         } else {
             precipChance = nil
         }
+        
+        summary = dailyWeatherDict["summary"] as? String
+        
+        // Chain optional binding command (versus nesting)
+        if let iconString = dailyWeatherDict["icon"] as? String,
+        let iconEnum = Icon(rawValue: iconString) {
+            (icon, largeIcon) = iconEnum.toImage()
+        }
+        
+        if let sunriseDate = dailyWeatherDict["sunriseTime"] as? Double {
+            sunriseTime = timeStringFromUnixTime(sunriseDate)
+        } else {
+            sunriseTime = nil
+        }
+        
+        if let sunsetDate = dailyWeatherDict["sunsetTime"] as? Double {
+            sunsetTime = timeStringFromUnixTime(sunsetDate)
+        } else {
+            sunsetTime = nil
+        }
+        
+        if let time = dailyWeatherDict["time"] as? Double {
+            day = dayStringFromTime(time)
+        }
+    }
+    
+    func timeStringFromUnixTime(unixTime: Double) -> String {
+        let date = NSDate(timeIntervalSince1970: unixTime)
+        
+        // Returns date formatted as 12 hour timeg
+        dateFormatter.dateFormat = "hh:mm a"
+        return dateFormatter.stringFromDate(date)
+    }
+    
+    func dayStringFromTime(unixTime: Double) -> String {
+        let date = NSDate(timeIntervalSince1970: unixTime)
+        
+        // Ask for the current locale of the iPhone to display day correctly (eg. Language)
+        dateFormatter.locale = NSLocale(localeIdentifier: NSLocale.currentLocale().localeIdentifier)
+        
+        // Get full day name (eg. MONDAY)
+        dateFormatter.dateFormat = "EEEE"
+        
+        return dateFormatter.stringFromDate(date)
     }
 }
