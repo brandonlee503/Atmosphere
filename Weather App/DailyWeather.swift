@@ -29,6 +29,7 @@ struct DailyWeather {
         
         // Using the optional cast operator (as?) in case the dictionary we pass in doesn't contain the key, will still be stored as an optional
         maxTemperature = dailyWeatherDict["temperatureMax"] as? Int
+        minTemperature = dailyWeatherDict["temperatureMin"] as? Int
         
         // Safely cast as Int
         if let humidityFloat = dailyWeatherDict["humidity"] as? Double {
