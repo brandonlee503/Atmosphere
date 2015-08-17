@@ -20,5 +20,17 @@ struct Forecast {
         if let currentWeatherDictionary = weatherDictionary?["currently"] as? [String: AnyObject] {
             currentWeather = CurrentWeather(weatherDictionary: currentWeatherDictionary)
         }
+        
+        // Because of the JSON nested dictionary response... And some pro optional chaining
+        if let weeklyWeatherArray = weatherDictionary?["daily"]?["data"] as? [[String: AnyObject]] {
+            
+            // Iterate over weeklyWeatherArray and retrieve each object cast it to the daily local variable
+            for dailyWeather in weeklyWeatherArray {
+                
+                // Create object for each day and append to weekly array
+                let daily = DailyWeather(dailyWeatherDict: dailyWeather)
+                weekly.append(daily)
+            }
+        }
     }
 }
