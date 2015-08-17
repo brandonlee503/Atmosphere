@@ -41,7 +41,10 @@ struct CurrentWeather {
         
         // Set Icon Image
         if let iconString = weatherDictionary["icon"] as? String, let weatherIcon: Icon = Icon(rawValue: iconString) {
-            icon = weatherIcon.toImage()
+            
+            // When a method returns a tuple, we can grab both values by using constants in parentheses
+            // Using an underscore for the second element tells Swift to ignore it
+            (icon, _) = weatherIcon.toImage()
         }
     }
 }
