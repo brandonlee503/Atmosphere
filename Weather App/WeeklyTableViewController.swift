@@ -20,6 +20,8 @@ class WeeklyTableViewController: UITableViewController {
     
     let coordinat: (lat: Double, long: Double) = (44.5736,-123.2750)
     
+    var weeklyWeather: [DailyWeather] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         retrieveWeatherForcast()
@@ -65,8 +67,9 @@ class WeeklyTableViewController: UITableViewController {
         
         // Trailing closure
         forecastService.getForecast(coordinat.lat, long: coordinat.long) {
-            (let currently) in
-            if let currentWeather = currently {
+            (let forecast) in
+            if let weatherForecast = forecast,
+                let currentWeather = weatherForecast.currentWeather {
                 
                 // Update UI on the main thread (we're still in the background thread) with some GCD magic
                 dispatch_async(dispatch_get_main_queue()) {
@@ -85,6 +88,13 @@ class WeeklyTableViewController: UITableViewController {
                     
                     if let icon = currentWeather.icon {
                         self.currentWeatherIcon?.image = icon
+                    }
+                    
+                    self.weeklyWeather = weatherForecast.weekly
+                    
+                    if let highTemp = self.weeklyWeather.first?.maxTemperature,
+                        let lowTemp = self.weeklyWeather.first?.minTemperature {
+                            self.currentTemperatureRangeLabel?.text = "↑\(highTemp)º↓\(lowTemp)º"
                     }
                 }
             }
