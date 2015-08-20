@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1662E77A1B4646DB001E3FFB /* CurrentWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1662E7791B4646DB001E3FFB /* CurrentWeather.swift */; };
+		16917D511B85BFBB00CBD95F /* DailyWeatherTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16917D501B85BFBB00CBD95F /* DailyWeatherTableViewCell.swift */; };
 		169F5A851B54B7EF006C9789 /* ForecastService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169F5A841B54B7EF006C9789 /* ForecastService.swift */; };
 		16AE863F1B81821B003C92E4 /* DailyWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16AE863E1B81821B003C92E4 /* DailyWeather.swift */; };
 		16AE86411B81ACC6003C92E4 /* Icon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16AE86401B81ACC6003C92E4 /* Icon.swift */; };
@@ -36,6 +37,7 @@
 
 /* Begin PBXFileReference section */
 		1662E7791B4646DB001E3FFB /* CurrentWeather.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentWeather.swift; sourceTree = "<group>"; };
+		16917D501B85BFBB00CBD95F /* DailyWeatherTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailyWeatherTableViewCell.swift; sourceTree = "<group>"; };
 		169F5A841B54B7EF006C9789 /* ForecastService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForecastService.swift; sourceTree = "<group>"; };
 		16AE863E1B81821B003C92E4 /* DailyWeather.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailyWeather.swift; sourceTree = "<group>"; };
 		16AE86401B81ACC6003C92E4 /* Icon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Icon.swift; sourceTree = "<group>"; };
@@ -99,6 +101,7 @@
 			children = (
 				16FEF7651B44AAA100C38CD7 /* Main.storyboard */,
 				16C7A9981B806850002F2BF8 /* BackgroundView.swift */,
+				16917D501B85BFBB00CBD95F /* DailyWeatherTableViewCell.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -273,6 +276,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				16AE863F1B81821B003C92E4 /* DailyWeather.swift in Sources */,
+				16917D511B85BFBB00CBD95F /* DailyWeatherTableViewCell.swift in Sources */,
 				169F5A851B54B7EF006C9789 /* ForecastService.swift in Sources */,
 				16F44A3F1B52E8E40059B7D1 /* NetworkOperation.swift in Sources */,
 				16AE86411B81ACC6003C92E4 /* Icon.swift in Sources */,

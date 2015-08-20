@@ -66,7 +66,7 @@
                             </constraints>
                         </view>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="WeatherCell" rowHeight="64" id="XRg-al-awH">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="WeatherCell" rowHeight="64" id="XRg-al-awH" customClass="DailyWeatherTableViewCell" customModule="Weather_App" customModuleProvider="target">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="XRg-al-awH" id="FBv-Gi-Fou">
                                     <autoresizingMask key="autoresizingMask"/>
@@ -109,6 +109,9 @@
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
+                                    <outlet property="dayLabel" destination="Lji-K3-yEE" id="HrH-Ka-k5e"/>
+                                    <outlet property="temperatureLabel" destination="iPn-Kb-Ki2" id="FQH-aS-ylW"/>
+                                    <outlet property="weatherIcon" destination="U8c-UK-7rp" id="Art-zB-Z9j"/>
                                     <segue destination="vXZ-lx-hvc" kind="show" id="W2t-aH-bvr"/>
                                 </connections>
                             </tableViewCell>
