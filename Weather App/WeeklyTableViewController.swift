@@ -46,8 +46,18 @@ class WeeklyTableViewController: UITableViewController {
             let navBarAttributesDictionary: [NSObject: AnyObject]? = [NSForegroundColorAttributeName: UIColor.whiteColor(), NSFontAttributeName: navBarFont]
             navigationController?.navigationBar.titleTextAttributes = navBarAttributesDictionary
         }
+        
+        // Position refresh control above background view
+        refreshControl?.layer.zPosition = tableView.backgroundView!.layer.zPosition + 1
+        refreshControl?.tintColor = UIColor.whiteColor()
     }
 
+    // Connect view to control (refresh control to controller) to refresh weather
+    @IBAction func refreshWeather() {
+        retrieveWeatherForcast()
+        refreshControl?.endRefreshing()
+    }
+    
     // MARK: - Table view data source
 
     // Tells tableView number of sections it has to display

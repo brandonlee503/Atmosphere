@@ -123,6 +123,12 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Weekly" id="SD3-UA-Tdb"/>
+                    <refreshControl key="refreshControl" opaque="NO" multipleTouchEnabled="YES" contentMode="center" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="M8L-2K-TS1">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <connections>
+                            <action selector="refreshWeather" destination="Tdj-dg-2fz" eventType="valueChanged" id="gZS-0o-iWF"/>
+                        </connections>
+                    </refreshControl>
                     <connections>
                         <outlet property="currentPrecipitationLevel" destination="aEv-6N-xVs" id="AX5-bW-fbN"/>
                         <outlet property="currentTemperatureLabel" destination="mBh-Pl-6Cx" id="wLJ-2u-fsS"/>
