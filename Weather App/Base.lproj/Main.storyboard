@@ -51,7 +51,7 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                             </subviews>
-                            <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <constraints>
                                 <constraint firstAttribute="bottom" secondItem="aEv-6N-xVs" secondAttribute="bottom" constant="8" id="3Kp-DX-6dT"/>
                                 <constraint firstItem="cza-rK-uTN" firstAttribute="top" secondItem="mBh-Pl-6Cx" secondAttribute="bottom" constant="10" id="HTF-UQ-Hbg"/>
@@ -89,7 +89,7 @@
                                                 <constraint firstAttribute="width" secondItem="U8c-UK-7rp" secondAttribute="height" multiplier="1:1" id="5jM-51-8h1"/>
                                             </constraints>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Wednesday" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lji-K3-yEE">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wednesday" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lji-K3-yEE">
                                             <rect key="frame" x="321" y="21" width="90" height="22"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="18"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -98,6 +98,7 @@
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="Iru-9x-IzX" firstAttribute="centerY" secondItem="iPn-Kb-Ki2" secondAttribute="centerY" constant="1.5" id="0jD-Zo-Utm"/>
+                                        <constraint firstItem="Lji-K3-yEE" firstAttribute="leading" secondItem="U8c-UK-7rp" secondAttribute="trailing" constant="23" id="RMg-oI-R7c"/>
                                         <constraint firstAttribute="centerX" secondItem="U8c-UK-7rp" secondAttribute="centerX" constant="22" id="Svs-8T-uqf"/>
                                         <constraint firstItem="U8c-UK-7rp" firstAttribute="top" secondItem="FBv-Gi-Fou" secondAttribute="topMargin" constant="4" id="cLV-Jz-Hna"/>
                                         <constraint firstAttribute="centerX" secondItem="Iru-9x-IzX" secondAttribute="centerX" constant="88" id="grk-9q-ahn"/>
@@ -107,7 +108,7 @@
                                         <constraint firstItem="Iru-9x-IzX" firstAttribute="top" secondItem="FBv-Gi-Fou" secondAttribute="topMargin" constant="3" id="vbF-Cf-akj"/>
                                     </constraints>
                                 </tableViewCellContentView>
-                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="dayLabel" destination="Lji-K3-yEE" id="HrH-Ka-k5e"/>
                                     <outlet property="temperatureLabel" destination="iPn-Kb-Ki2" id="FQH-aS-ylW"/>
