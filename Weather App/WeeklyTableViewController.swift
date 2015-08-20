@@ -55,6 +55,10 @@ class WeeklyTableViewController: UITableViewController {
         // Return the number of sections.
         return 1
     }
+    
+    override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return "Weekly Forecast"
+    }
 
     // Let tableView know how many rows to display in section
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -75,6 +79,28 @@ class WeeklyTableViewController: UITableViewController {
         cell.dayLabel!.text = dailyWeather.day
         
         return cell
+    }
+    
+    // MARK: - Delegate Methods
+    
+    // Update header view color
+    override func tableView(tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        view.tintColor = UIColor(red: 170/255.0, green: 131/255.0, blue: 224/255.0, alpha: 1.0)
+        
+        // Update view color
+        if let header = view as? UITableViewHeaderFooterView {
+            header.textLabel.font = UIFont(name: "HelveticaNeue-Thin", size: 14.0)
+            header.textLabel.textColor = UIColor.whiteColor()
+        }
+    }
+    
+    // Change default grey highlighting
+    override func tableView(tableView: UITableView, didHighlightRowAtIndexPath indexPath: NSIndexPath) {
+        var cell = tableView.cellForRowAtIndexPath(indexPath)
+        cell?.contentView.backgroundColor = UIColor(red: 165/255.0, green: 142/255.0, blue: 203/255.0, alpha: 1.0)
+        let highlightView = UIView()
+        highlightView.backgroundColor = UIColor(red: 165/255.0, green: 142/255.0, blue: 203/255.0, alpha: 1.0)
+        cell?.selectedBackgroundView = highlightView
     }
     
     // MARK: - Weather Fetching
