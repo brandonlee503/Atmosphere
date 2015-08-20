@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="F3x-e0-hX0">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -64,10 +65,18 @@
                             </constraints>
                         </view>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="XRg-al-awH">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="WeatherCell" textLabel="Dzf-6z-HOT" style="IBUITableViewCellStyleDefault" id="XRg-al-awH">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="XRg-al-awH" id="FBv-Gi-Fou">
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Dzf-6z-HOT">
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
                                 </tableViewCellContentView>
                                 <connections>
                                     <segue destination="vXZ-lx-hvc" kind="show" id="W2t-aH-bvr"/>
@@ -210,6 +219,8 @@
                                 <exclude reference="l3c-uz-I4v"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="HAQ-pm-KTb"/>
+                                <exclude reference="ZbQ-y2-Hlq"/>
                                 <exclude reference="170-0O-OBy"/>
                                 <exclude reference="BAO-xv-TtO"/>
                                 <exclude reference="G5E-OL-eEq"/>
@@ -218,15 +229,13 @@
                                 <exclude reference="zrH-kx-21Z"/>
                                 <exclude reference="etu-on-Ial"/>
                                 <exclude reference="sSZ-7t-ReQ"/>
-                                <exclude reference="HAQ-pm-KTb"/>
-                                <exclude reference="ZbQ-y2-Hlq"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=compact-widthClass=compact">
                             <mask key="constraints">
+                                <include reference="ZbQ-y2-Hlq"/>
                                 <include reference="170-0O-OBy"/>
                                 <include reference="G5E-OL-eEq"/>
-                                <include reference="ZbQ-y2-Hlq"/>
                             </mask>
                         </variation>
                     </view>
