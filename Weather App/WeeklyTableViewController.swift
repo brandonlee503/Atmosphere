@@ -38,7 +38,10 @@ class WeeklyTableViewController: UITableViewController {
         // Set tableview's background view property
         tableView.backgroundView = BackgroundView()
         
-        //Change font/size of navbar text
+        // Set custom height for tableView row
+        tableView.rowHeight = 64
+        
+        // Change font/size of navbar text
         if let navBarFont = UIFont(name: "HelveticaNeue-Thin", size: 20.0) {
             let navBarAttributesDictionary: [NSObject: AnyObject]? = [NSForegroundColorAttributeName: UIColor.whiteColor(), NSFontAttributeName: navBarFont]
             navigationController?.navigationBar.titleTextAttributes = navBarAttributesDictionary
