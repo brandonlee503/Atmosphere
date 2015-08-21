@@ -22,9 +22,20 @@ class ViewController: UIViewController {
     }
     
     func configureView() {
+        
+        // Set navbar day title
         if let weather = dailyWeather {
             self.title = weather.day
         }
+        
+        // Config navbar back button
+        if let buttonFont = UIFont(name: "HelveticaNeue-Thin", size: 20.0) {
+            let barButtonAttributesDictionary: [NSObject: AnyObject]? = [NSForegroundColorAttributeName: UIColor.whiteColor(), NSFontAttributeName: buttonFont]
+            
+            UIBarButtonItem.appearance().setTitleTextAttributes(barButtonAttributesDictionary, forState: .Normal)
+        }
+        
+
     }
 
     override func didReceiveMemoryWarning() {
