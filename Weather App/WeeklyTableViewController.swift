@@ -58,6 +58,19 @@ class WeeklyTableViewController: UITableViewController {
         refreshControl?.endRefreshing()
     }
     
+    // MARK: - Navigation
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "showDaily" {
+            if let indexPath = tableView.indexPathForSelectedRow() {
+                let dailyWeather = weeklyWeather[indexPath.row]
+                
+                // Following code same as "let destinationViewController = segue.destinationViewController as! ViewController"
+                (segue.destinationViewController as! ViewController).dailyWeather = dailyWeather
+            }
+        }
+    }
+    
     // MARK: - Table view data source
 
     // Tells tableView number of sections it has to display
