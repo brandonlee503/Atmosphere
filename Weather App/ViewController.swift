@@ -11,20 +11,36 @@ import UIKit
 class ViewController: UIViewController {
     
     var dailyWeather: DailyWeather? {
+        
+        //TODO: didSet calls configureView while outlets are still nil, restructure app for dailyWeather property to be set after the view is fully initialized
         didSet {
             configureView()
         }
     }
     
+    @IBOutlet weak var weatherIcon: UIImageView?
+    @IBOutlet weak var summaryLabel: UILabel?
+    @IBOutlet weak var sunriseLabel: UILabel?
+    @IBOutlet weak var sunsetLabel: UILabel?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        /* Call configure view again since prepareForSegue method immediately calls didSet observer
+        which calls configureView() while the values are nil...*/
+        configureView()
     }
     
     func configureView() {
         
         // Set navbar day title
         if let weather = dailyWeather {
+            // Update UI with information from data model
+            weatherIcon?.image = weather.largeIcon
+            summaryLabel?.text = weather.summary
+            sunriseLabel?.text = weather.sunriseTime
+            sunsetLabel?.text = weather.sunsetTime
             self.title = weather.day
         }
         
@@ -34,8 +50,6 @@ class ViewController: UIViewController {
             
             UIBarButtonItem.appearance().setTitleTextAttributes(barButtonAttributesDictionary, forState: .Normal)
         }
-        
-
     }
 
     override func didReceiveMemoryWarning() {
