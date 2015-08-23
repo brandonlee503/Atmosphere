@@ -23,6 +23,11 @@ class ViewController: UIViewController {
     @IBOutlet weak var sunriseLabel: UILabel?
     @IBOutlet weak var sunsetLabel: UILabel?
     
+    @IBOutlet weak var lowTemperatureLabel: UILabel?
+    @IBOutlet weak var highTemperatureLabel: UILabel?
+    @IBOutlet weak var precipitationLabel: UILabel?
+    @IBOutlet weak var humidityLabel: UILabel?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -33,15 +38,35 @@ class ViewController: UIViewController {
     }
     
     func configureView() {
-        
-        // Set navbar day title
+
+        // Update UI with information from data model
         if let weather = dailyWeather {
-            // Update UI with information from data model
             weatherIcon?.image = weather.largeIcon
             summaryLabel?.text = weather.summary
             sunriseLabel?.text = weather.sunriseTime
             sunsetLabel?.text = weather.sunsetTime
+
+            // Set navbar day title
             self.title = weather.day
+            
+            if let lowTemp = weather.minTemperature,
+               let highTemp = weather.maxTemperature,
+               let rain = weather.precipChance,
+               let humidity = weather.humidity {
+                    lowTemperatureLabel?.text = "\(lowTemp)º"
+                    highTemperatureLabel?.text = "\(highTemp)º"
+                    precipitationLabel?.text = "\(rain)%"
+                    humidityLabel?.text = "\(humidity)%"
+                
+            }
+            
+            //TODO: Figure out - Why can't we just do this?
+            /*
+            lowTemperatureLabel?.text = weather.minTemperature
+            highTemperatureLabel?.text = weather.maxTemperature
+            precipitationLabel?.text = weather.precipChance
+            */
+            
         }
         
         // Config navbar back button
