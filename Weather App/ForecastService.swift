@@ -22,7 +22,7 @@ struct ForecastService {
     
     // Input location and a closure and return the forecast
     // Use closure here since we'll be calling the download JSON method of NetworkOperation
-    func getForecast(lat: Double, long: Double, completion: (CurrentWeather? -> Void)) {
+    func getForecast(lat: Double, long: Double, completion: (Forecast? -> Void)) {
         
         // Safely initilize forecast URL
         if let forecastURL = NSURL(string: "\(lat),\(long)", relativeToURL: forecastBaseURL) {
@@ -32,31 +32,16 @@ struct ForecastService {
             // Trailing closure
             networkOperation.downloadJSONFromURL {
                 (let JSONDictionary) in
-                let currentWeather = self.currentWeatherFromJSONDictionary(JSONDictionary)
+                let forecast = Forecast(weatherDictionary: JSONDictionary)
                 
                 // This moves it up to the completion handler in parameter so that if we call the getForecast() method,
                 // and complete the completion handler and access the currentWeather variable, we get access to the
                 // populated instance that we're passing up.
-                completion(currentWeather)
+                completion(forecast)
             }
             
         } else {
             println("Could not construct a valid URL")
-        }
-    }
-    
-    // Parse the contents of dictionary and create populated instance of current weather
-    func currentWeatherFromJSONDictionary(jsonDictionary: [String: AnyObject]?) -> CurrentWeather? {
-        
-        // Optional binding to make sure jsonDictionary returns non-nil value,
-        // if so cast it to a dictionary type and assign to variable
-        if let currentWeatherDictionary = jsonDictionary?["currently"] as? [String: AnyObject] {
-            
-            return CurrentWeather(weatherDictionary: currentWeatherDictionary)
-            
-        } else {
-            println("JSON Dictionary returned nil for 'currently' key")
-            return nil
         }
     }
 }

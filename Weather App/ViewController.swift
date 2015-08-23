@@ -9,88 +9,76 @@
 import UIKit
 
 class ViewController: UIViewController {
-
-    //Label outlets
-    @IBOutlet weak var currentTemperatureLabel: UILabel?
-    @IBOutlet weak var currentHumidityLabel: UILabel?
-    @IBOutlet weak var currentPrecipitationLevel: UILabel?
-    @IBOutlet weak var currentWeatherIcon: UIImageView?
-    @IBOutlet weak var currentWeatherSummary: UILabel?
-    @IBOutlet weak var refreshButton: UIButton?
-    @IBOutlet weak var activityIndicator: UIActivityIndicatorView?
     
-    // Initilize API key
-    private let forecastAPIKey = ""
+    var dailyWeather: DailyWeather? {
+        
+        //TODO: didSet calls configureView while outlets are still nil, restructure app for dailyWeather property to be set after the view is fully initialized
+        didSet {
+            configureView()
+        }
+    }
     
+    @IBOutlet weak var weatherIcon: UIImageView?
+    @IBOutlet weak var summaryLabel: UILabel?
+    @IBOutlet weak var sunriseLabel: UILabel?
+    @IBOutlet weak var sunsetLabel: UILabel?
     
-    let coordinat: (lat: Double, long: Double) = (44.5736,-123.2750)
+    @IBOutlet weak var lowTemperatureLabel: UILabel?
+    @IBOutlet weak var highTemperatureLabel: UILabel?
+    @IBOutlet weak var precipitationLabel: UILabel?
+    @IBOutlet weak var humidityLabel: UILabel?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        retrieveWeatherForcast()
+        /* Call configure view again since prepareForSegue method immediately calls didSet observer
+        which calls configureView() while the values are nil...*/
+        configureView()
+    }
+    
+    func configureView() {
 
+        // Update UI with information from data model
+        if let weather = dailyWeather {
+            weatherIcon?.image = weather.largeIcon
+            summaryLabel?.text = weather.summary
+            sunriseLabel?.text = weather.sunriseTime
+            sunsetLabel?.text = weather.sunsetTime
+
+            // Set navbar day title
+            self.title = weather.day
+            
+            if let lowTemp = weather.minTemperature,
+               let highTemp = weather.maxTemperature,
+               let rain = weather.precipChance,
+               let humidity = weather.humidity {
+                    lowTemperatureLabel?.text = "\(lowTemp)º"
+                    highTemperatureLabel?.text = "\(highTemp)º"
+                    precipitationLabel?.text = "\(rain)%"
+                    humidityLabel?.text = "\(humidity)%"
+                
+            }
+            
+            //TODO: Figure out - Why can't we just do this?
+            /*
+            lowTemperatureLabel?.text = weather.minTemperature
+            highTemperatureLabel?.text = weather.maxTemperature
+            precipitationLabel?.text = weather.precipChance
+            */
+            
+        }
+        
+        // Config navbar back button
+        if let buttonFont = UIFont(name: "HelveticaNeue-Thin", size: 20.0) {
+            let barButtonAttributesDictionary: [NSObject: AnyObject]? = [NSForegroundColorAttributeName: UIColor.whiteColor(), NSFontAttributeName: buttonFont]
+            
+            UIBarButtonItem.appearance().setTitleTextAttributes(barButtonAttributesDictionary, forState: .Normal)
+        }
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
-    
-    func retrieveWeatherForcast() {
-        
-        let forecastService = ForecastService(APIKey: forecastAPIKey)
-        
-        // Trailing closure
-        forecastService.getForecast(coordinat.lat, long: coordinat.long) {
-            (let currently) in
-            if let currentWeather = currently {
-                
-                // Update UI on the main thread (we're still in the background thread) with some GCD magic
-                dispatch_async(dispatch_get_main_queue()) {
-                    
-                    // Execute trailing closure to update UI labels
-                    if let temperature = currentWeather.temperature {
-                        
-                        // If refering to a stored property from within a closure, you have to use keyword 'self'
-                        self.currentTemperatureLabel?.text = "\(temperature)º"
-                    }
-                    
-                    // Repeat same process for other labels
-                    if let humidity = currentWeather.humidity {
-                        self.currentHumidityLabel?.text = "\(humidity)%"
-                    }
-                    
-                    if let precipitation = currentWeather.precipProbability {
-                        self.currentPrecipitationLevel?.text = "\(precipitation)%"
-                    }
-                    
-                    if let icon = currentWeather.icon {
-                        self.currentWeatherIcon?.image = icon
-                    }
-                    
-                    if let summary = currentWeather.summary {
-                        self.currentWeatherSummary?.text = summary
-                    }
-                    
-                    self.toggleRefreshAnimation(false)
-                }
-            }
-        }
-    }
-    
-    @IBAction func refreshWeather() {
-        toggleRefreshAnimation(true)
-        retrieveWeatherForcast()
-    }
-
-    func toggleRefreshAnimation(on: Bool) {
-        refreshButton?.hidden = on
-        if on {
-            activityIndicator?.startAnimating()
-        } else {
-            activityIndicator?.stopAnimating()
-        }
     }
 }
